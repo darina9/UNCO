@@ -283,7 +283,7 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault(); // Prevent the form from submitting the default way
         const formData = new FormData(form);
 
-        fetch('https://submit-form.com/cq4vW5AdM', {
+        fetch('https://formspree.io/f/mkndlaza', {
             method: 'POST',
             body: formData
         })
