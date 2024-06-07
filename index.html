@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" type="image/x-icon" href="./img/logo (3).ico">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>UNCO</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="header__list center">
+        <button class="burger-menu" onclick="toggleMenu()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <path d="M26.6673 23.3333C27.1809 23.3336 27.6748 23.5314 28.0465 23.8859C28.4182 24.2403 28.6393 24.7242 28.664 25.2372C28.6887 25.7502 28.5151 26.2531 28.1791 26.6416C27.8431 27.0301 27.3705 27.2744 26.8593 27.324L26.6673 27.3333H5.33398C4.82036 27.3331 4.32652 27.1352 3.9548 26.7808C3.58308 26.4263 3.36197 25.9425 3.33729 25.4294C3.3126 24.9164 3.48624 24.4135 3.82222 24.0251C4.1582 23.6366 4.63076 23.3922 5.14198 23.3427L5.33398 23.3333H26.6673ZM26.6673 14C27.1978 14 27.7065 14.2107 28.0815 14.5858C28.4566 14.9608 28.6673 15.4696 28.6673 16C28.6673 16.5304 28.4566 17.0391 28.0815 17.4142C27.7065 17.7893 27.1978 18 26.6673 18H5.33398C4.80355 18 4.29484 17.7893 3.91977 17.4142C3.5447 17.0391 3.33398 16.5304 3.33398 16C3.33398 15.4696 3.5447 14.9608 3.91977 14.5858C4.29484 14.2107 4.80355 14 5.33398 14H26.6673ZM26.6673 4.66666C27.1978 4.66666 27.7065 4.87737 28.0815 5.25244C28.4566 5.62752 28.6673 6.13622 28.6673 6.66666C28.6673 7.19709 28.4566 7.7058 28.0815 8.08087C27.7065 8.45594 27.1978 8.66666 26.6673 8.66666H5.33398C4.80355 8.66666 4.29484 8.45594 3.91977 8.08087C3.5447 7.7058 3.33398 7.19709 3.33398 6.66666C3.33398 6.13622 3.5447 5.62752 3.91977 5.25244C4.29484 4.87737 4.80355 4.66666 5.33398 4.66666H26.6673Z" fill="#BC0051"/>
+          </svg>
+        </button>
+        <ul class="left-links">
+          <li><a class="links title-semibold" href="#watch">Advantages</a></li>
+          <li><a class="links title-semibold" href="#how_it_works">How it works?</a></li>
+        </ul>
+        <div class="logo">
+          <img src="./img/logo.svg" alt="Логотип" />
+        </div>
+        <ul class="right-links">
+          <li><a class="links title-semibold" href="#contacts">Contacts</a></li>
+        </ul>
+      </nav>
+      <div id="menu" class="dropdown-menu">
+        <button class="close-menu" onclick="toggleMenu()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.56031 6.44C8.27596 6.17504 7.89986 6.03079 7.51126 6.03765C7.12266 6.0445 6.75189 6.20193 6.47706 6.47675C6.20224 6.75158 6.04481 7.12235 6.03796 7.51095C6.0311 7.89956 6.17535 8.27565 6.44031 8.56L13.8803 16L6.44031 23.44C6.29293 23.5773 6.17473 23.7429 6.09275 23.9269C6.01076 24.1109 5.96668 24.3095 5.96312 24.511C5.95957 24.7124 5.99662 24.9124 6.07206 25.0992C6.1475 25.286 6.25979 25.4556 6.40223 25.5981C6.54467 25.7405 6.71434 25.8528 6.90111 25.9282C7.08789 26.0037 7.28795 26.0407 7.48935 26.0372C7.69076 26.0336 7.88938 25.9895 8.07338 25.9076C8.25738 25.8256 8.42298 25.7074 8.56031 25.56L16.0003 18.12L23.4403 25.56C23.5776 25.7074 23.7432 25.8256 23.9272 25.9076C24.1112 25.9895 24.3099 26.0336 24.5113 26.0372C24.7127 26.0407 24.9127 26.0037 25.0995 25.9282C25.2863 25.8528 25.4559 25.7405 25.5984 25.5981C25.7408 25.4556 25.8531 25.286 25.9286 25.0992C26.004 24.9124 26.041 24.7124 26.0375 24.511C26.0339 24.3095 25.9899 24.1109 25.9079 23.9269C25.8259 23.7429 25.7077 23.5773 25.5603 23.44L18.1203 16L25.5603 8.56C25.8253 8.27565 25.9695 7.89956 25.9627 7.51095C25.9558 7.12235 25.7984 6.75158 25.5236 6.47675C25.2487 6.20193 24.878 6.0445 24.4894 6.03765C24.1007 6.03079 23.7247 6.17504 23.4403 6.44L16.0003 13.88L8.56031 6.44Z" fill="#BC0051"/>
+          </svg>
+        </button>
+        <ul class="menu-links">
+          <li><a class="links title-semibold" href="#watch">Advantages</a></li>
+          <li><a class="links title-semibold" href="#how_it_works">How it works?</a></li>
+          <li><a class="links title-semibold" href="#contacts">Contacts</a></li>
+        </ul>
+      </div>
+    </header>
+    <main class="center">
+      <section class="banner-info">
+        <div class="banner-info__title">
+          <img
+            class="banner-info__title_img"
+            src="./img/Logo_banner.png"
+            alt="FOOD FUTURES"
+          />
+          <img
+            class="banner-info__title_img-midi"
+            src="./img/Logo_banner_midi.png"
+            alt="FOOD FUTURES"
+          />
+          <img
+          class="banner-info__title_img-mini"
+          src="./img/Logo_banner_mini.png"
+          alt="FOOD FUTURES"
+        />
+          <h4 class="banner-info__title_text title-semibold">
+            It’s a highly liquid and secure food contract for retail investors on blockchain*
+          </h4>
+        </div>
+        <div class="banner-info__btn">
+          <button  class="btn"><a href="#contacts">Invest Now</a></button>
+        </div>
+        <div class="banner-info__quote">
+          <div class="banner-info__quote_left">
+            <blockquote>
+              <h7 class="banner-info__quote_text title-semibold"
+                >The next generation for markets, the next generation for
+                securities, will be tokenization of securities</h7
+              >
+            </blockquote>
+            <h9 class="banner-info__quote_autor">Larry Fink, CEO BlackRock</h9>
+          </div>
+          <img  class="banner-info__quote_img" src="./img/Larry.png " alt="Larry Fink CEO BlackRock" />
+        </div>
+      </section>
+      <section class="blockchain-contracts">
+        <h5 class="blockchain-contracts__title">
+          Why we are using blockchain for our futures contracts:
+        </h5>
+        <ul class="blockchain-contracts__list">
+          <li class="blockchain-contracts__item">
+            <h6 class="blockchain-contracts__item_text">Fast</h6>
+          </li>
+          <li class="blockchain-contracts__item">
+            <h6 class="blockchain-contracts__item_text">Secure</h6>
+          </li>
+          <li class="blockchain-contracts__item">
+            <h6 class="blockchain-contracts__item_text">
+              Transparent and immutable
+            </h6>
+          </li>
+          <li class="blockchain-contracts__item">
+            <h6 class="blockchain-contracts__item_text">
+              Worldwide technology
+            </h6>
+          </li>
+          <li class="blockchain-contracts__item">
+            <h6 class="blockchain-contracts__item_text">
+              Cheap (even for small quantities of food)
+            </h6>
+          </li>
+          <li class="blockchain-contracts__item">
+            <h6 class="blockchain-contracts__item_text">
+              Efficient with minimal intermediaries
+            </h6>
+          </li>
+        </ul>
+      </section>
+      <section class="banner-img">
+        <img class="banner-img__img" src="./img/farmer.png" alt="Old farmer" />
+        <div class="banner-img__text">
+          <h5 class="banner-img__text_title">
+            <span class="text-pink">UNCO FOOD FUTURES</span> are not paper, but
+            always <span class="text-pink">REAL FOOD</span>
+          </h5>
+          <div class="banner-img__text_btn">
+            <button class="btn"><a href="#contacts">Сlick here</a></button>
+          </div>
+        </div>
+      </section>
+      <section class="profit-chart">
+        <div class="profit-chart__text">
+          <h3 class="profit-chart__text_info">
+            you can get more than 200% profit in a few months
+          </h3>
+          <ul class="profit-chart__text_list">
+            <li class="profit-chart__text_item">
+              <svg class="apple-svg"xmlns="http://www.w3.org/2000/svg" style="display: none">
+                <defs>
+                  <symbol id="icon-profit" viewBox="0 0 24 40">
+                    <g clip-path="url(#clip0_172_283)">
+                      <path
+                        d="M10.8869 22.3524C7.32638 22.3524 4.43003 25.2759 4.43003 28.8698C4.43003 32.4636 7.32638 35.3874 10.8869 35.3874C14.4475 35.3874 17.3442 32.4636 17.3442 28.8698C17.3442 25.2759 14.4475 22.3524 10.8869 22.3524ZM10.8869 39.8073C4.91186 39.8073 0.0507812 34.9008 0.0507812 28.8698C0.0507812 22.8389 4.91186 17.9324 10.8869 17.9324C16.862 17.9324 21.7231 22.8389 21.7231 28.8698C21.7231 34.9008 16.862 39.8073 10.8869 39.8073Z"
+                        fill="#C40755"
+                      />
+                      <path
+                        d="M13.6079 15.6117C13.3275 16.6171 13.3191 16.6419 12.4019 16.3092C9.83521 15.3777 7.46418 14.1106 5.65587 11.9371C4.38777 10.4126 3.68657 8.62204 3.51718 6.60621C3.33826 4.47139 3.6446 2.39087 4.29773 0.350784C4.40226 0.0246315 4.56707 -0.0596962 4.87074 0.0396519C6.89956 0.701583 8.80554 1.59648 10.475 2.98811C12.2875 4.4995 13.4309 6.43601 13.91 8.7957C14.2633 10.5374 14.2003 12.296 13.9009 14.0522C13.812 14.5735 13.7055 15.092 13.6079 15.6117Z"
+                        fill="#9FC530"
+                      />
+                      <path
+                        d="M14.3238 16.6589C14.8495 12.9448 16.7715 11.5367 18.7546 10.9051C21.0451 10.1469 23.436 10.9055 23.7484 11.5112C24.0605 12.117 23.4138 13.0572 23.069 13.0213C21.3076 12.8378 20.0597 12.8704 18.4974 13.3119C16.8547 13.7764 15.3092 16.1343 15.0128 16.7602C14.9831 16.8231 14.9357 17.0051 14.7954 16.9539C14.7431 16.935 14.6382 16.8915 14.4806 16.8417C14.4367 16.8279 14.3066 16.7963 14.3238 16.6589Z"
+                        fill="#5A3114"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_172_283">
+                        <rect width="23.8298" height="40" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </symbol>
+                </defs>
+              </svg>
+              <svg  width="24" height="40">
+                <use xlink:href="#icon-profit"></use>
+              </svg>
+
+              <h6 class="profit-chart__text_item-text">
+                Solving the marketing problem as we already have loyal consumers
+              </h6>
+            </li>
+            <li class="profit-chart__text_item">
+              <svg width="24" height="40">
+                <use xlink:href="#icon-profit"></use>
+              </svg>
+              <h6 class="profit-chart__text_item-text">
+                Optimised and <span class="text-pink">subsidised</span> supply
+                chain management
+              </h6>
+            </li>
+            <li class="profit-chart__text_item">
+              <svg class="svg" width="24" height="40">
+                <use xlink:href="#icon-profit"></use>
+              </svg>
+              <h6 class="profit-chart__text_item-text">Financing production</h6>
+            </li>
+          </ul>
+        </div>
+        <div class="profit-chart__img">
+          <img class="profit-chart__img-big" src="./img/profit chart.svg" alt="profit chart" />
+          <img class="profit-chart__img-midi" src="./img/profit chart-midi.svg" alt="profit chart" />
+          <img class="profit-chart__img-mini" src="./img/profit chart-mini.svg" alt="profit chart" />
+        </div>
+      </section>
+      <section class="profit-list">
+        <h5 class="profit-list__title">Profitable with UNCO:</h5>
+        <ul class="profit-list__list">
+          <li class="profit-list__item">
+            <h6 class="profit-list__item_text">Price lower than retail</h6>
+          </li>
+          <li class="profit-list__item">
+            <h6 class="profit-list__item_text">
+              Products for delivery — close to home (our eco-point is closer
+              than the retail point)
+            </h6>
+          </li>
+          <li class="profit-list__item">
+            <h6 class="profit-list__item_text">
+              Products from a local farmer/producer
+            </h6>
+          </li>
+          <li class="profit-list__item">
+            <h6 class="profit-list__item_text">
+              'Day-to-day' fresh  (product is available for obtainment within 24 hours after shipment from the farmer/producer)
+            </h6>
+          </li>
+          <li class="profit-list__item">
+            <h6 class="profit-list__item_text">
+              Low quantity/absence of preservatives and other additives that
+              increase the shelf life/quality of the product
+            </h6>
+          </li>
+        </ul>
+      </section>
+      <section class="banner-watch " id="watch">
+        <div class="banner-watch__info">
+          <h5 class="banner-watch__info_title">
+            UNCO food futures for you, if you:
+          </h5>
+          <ul class="banner-watch__info_list">
+            <li class="banner-watch__info_item">
+              <svg class="svg" width="24" height="40">
+                <use xlink:href="#icon-profit"></use>
+              </svg>
+              <h6 class="banner-watch__info_text">
+                Look for secured investments with more than 40% interest
+                rate*
+              </h6>
+            </li>
+            <li class="banner-watch__info_item">
+              <svg class="svg" width="24" height="40">
+                <use xlink:href="#icon-profit"></use>
+              </svg>
+              <h6 class="banner-watch__info_text">
+                Love 24H fresh and healthy food with cheap price
+              </h6>
+            </li>
+            <li class="banner-watch__info_item">
+              <svg class="svg" width="24" height="40">
+                <use xlink:href="#icon-profit"></use>
+              </svg>
+              <h6 class="banner-watch__info_text">
+                Look for food products with stable price and supply for your
+                business
+              </h6>
+            </li>
+            <li class="banner-watch__info_item">
+              <svg class="svg" width="24" height="40">
+                <use xlink:href="#icon-profit"></use>
+              </svg>
+              <h6 class="banner-watch__info_text">
+                Look for cheaper ways to get finance for your food production
+              </h6>
+            </li>
+          </ul>
+        </div>
+        <div class="banner-watch__time">
+          <div class="banner-watch__time_timer" id="countdown">00:00:00</div>
+          <div class="banner-watch__time_btn">
+            <button class="btn"><a href="#contacts">Invest at an early stage</a></button>
+          </div>
+        </div>
+      </section>
+      <section class="banner-founder">
+        <img
+          class="banner-founder__foto"
+          alt="Andrew Yusupov Founder UNCO"
+          src="./img/image_andrew.png"
+        />
+        <div class="banner-founder__text">
+          <blockquote>
+            <h6 class="banner-founder__text_quote">
+              Smartphones have changed a lot of things, but they are just
+              beginning to solve the huge cost challenges of low-tech in food
+              distribution and retail. And there is not only a fix of the «40%
+              food waste» problem, but also shockingly impressive and fast
+              profits for those who offer a solution. Food is the most reliable
+              business there is. Always needed and for everyone.
+            </h6>
+          </blockquote>
+          <h9 class="banner-founder__text_autor"
+            >Andrew Yusupov, Founder UNCO</h9
+          >
+        </div>
+      </section>
+      <section class="charts-difference">
+        <h5 class="charts-difference__title">
+          Significant price difference even with a retailer 0,5 km from farmer:
+        </h5>
+        <div class="charts-difference__imgs">
+          <div class="charts-difference__imgs_left">
+            <img
+              class="charts-difference__imgs_img"
+              src="./img/image_potatoes.png"
+              alt="Potatoes"
+            />
+            <h6 class="charts-difference__imgs_title">Potatoes price per kg</h6>
+            <img
+              class="charts-difference__imgs_chart"
+              src="./img/potatoes_diagram.png"
+              alt="chart potatoes"
+            />
+          </div>
+          <div class="chart-difference__imgs_right">
+            <div class="charts-difference__imgs_left">
+              <img
+                class="charts-difference__imgs_img"
+                src="./img/image_peachers.png"
+                alt="peaches"
+              />
+              <h6 class="charts-difference__imgs_title">
+                Peaches price per kg
+              </h6>
+              <img
+                class="charts-difference__imgs_chart"
+                src="./img/peaches_diagram.png"
+                alt="chart peaches"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="chart-difference__btn">
+          <button class="btn btn-big"><a href="#contacts">
+            Buy for farm price using Unco Food Futures</a>
+          </button>
+        </div>
+      </section>
+      <section class="workflow-algorithm">
+        <h5 class="workflow-algorithm__title" id="how_it_works">How it works?</h5>
+
+        <ul class="workflow-algorithm__list">
+          <li class="workflow-algorithm__item workflow_1">
+            <svg width="0" height="0" class="hidden-svg">
+              <defs>
+                <symbol id="svg-icon" viewBox="0 0 40 40" fill="none">
+                  <path
+                    d="M23.424 9.97495C23.2861 9.72716 23.0839 9.52123 22.8386 9.37894C22.5933 9.23665 22.3142 9.16329 22.0307 9.16661H18.0273C17.7292 9.16392 17.4363 9.24456 17.1815 9.39946C16.9268 9.55436 16.7204 9.77735 16.5857 10.0433C15.6423 11.9333 13.5357 16.5049 13.3473 19.9933L13.3454 19.998L13.3407 19.9999L13.3359 20.0019L13.334 20.0066V30.8333C13.334 31.7173 13.6852 32.5652 14.3103 33.1903C14.9354 33.8154 15.7833 34.1666 16.6673 34.1666H23.334C24.218 34.1666 25.0659 33.8154 25.691 33.1903C26.3161 32.5652 26.6673 31.7173 26.6673 30.8333V20.0049L26.6659 20.0014L26.6623 19.9999L26.6604 19.9996L26.6588 19.9985L26.6577 19.9969L26.6573 19.9949C26.4907 16.0116 24.3773 11.7199 23.424 9.97495Z"
+                    stroke="#214B33"
+                    stroke-width="1.66667"
+                  />
+                  <path
+                    d="M24.1667 5.8335H15.8333C15.3731 5.8335 15 6.20659 15 6.66683V8.3335C15 8.79373 15.3731 9.16683 15.8333 9.16683H24.1667C24.6269 9.16683 25 8.79373 25 8.3335V6.66683C25 6.20659 24.6269 5.8335 24.1667 5.8335Z"
+                    stroke="#214B33"
+                    stroke-width="1.66667"
+                  />
+                  <path
+                    d="M16.668 20.8335V30.0002"
+                    stroke="#214B33"
+                    stroke-width="1.66667"
+                    stroke-linecap="round"
+                  />
+                </symbol>
+              </defs>
+            </svg>
+            <div class="workflow-algorithm__item_svg">
+              <div class="svg-item">
+                <svg width="40" height="40">
+                  <use xlink:href="#svg-icon"></use>
+                </svg>
+              </div>
+              <div class="svg-item">
+                <svg width="40" height="40">
+                  <use xlink:href="#svg-icon"></use>
+                </svg>
+              </div>
+              <div class="svg-item">
+                <svg width="40" height="40">
+                  <use xlink:href="#svg-icon"></use>
+                </svg>
+              </div>
+              <div class="svg-item">
+                <svg width="40" height="40">
+                  <use xlink:href="#svg-icon"></use>
+                </svg>
+              </div>
+            </div>
+            <h6 class="workflow-algorithm__item_text">
+              The farmer is publishing a futures contract for the upcoming sale
+              of milk at a price of 50 cents per liter. The delivery date is in
+              30 days.
+            </h6>
+          </li>
+          <svg class="arrow arrow_1_2"><use xlink:href="#arrow"></use></svg>
+          <li class="workflow-algorithm__item workflow_2">
+            <div class="workflow-algorithm__item_svg">
+              <div class="svg-item">
+                <svg width="40" height="40">
+                  <use xlink:href="#svg-icon"></use>
+                </svg>
+              </div>
+              <div class="svg-item">
+                <svg width="40" height="40">
+                  <use xlink:href="#svg-icon"></use>
+                </svg>
+              </div>
+              <div class="svg-item">
+                <svg width="40" height="40">
+                  <use xlink:href="#svg-icon"></use>
+                </svg>
+              </div>
+            </div>
+            <h6 class="workflow-algorithm__item_text">
+              You purchase a milk UFF from us at a price of 50 cents +10%
+              (service commission). In 30 days, you sell the milk at a price of
+              75 cents per liter.
+            </h6>
+          </li>
+          <svg class="arrow arrow_2_3"><use xlink:href="#arrow"></use></svg>
+          <svg class="arrow arrow_2_4"><use xlink:href="#arrow"></use></svg>
+          <li class="workflow-algorithm__item workflow_3">
+            <div class="workflow-algorithm__item_svg">
+              <div class="svg-item">
+                <svg width="40" height="40">
+                  <use xlink:href="#svg-icon"></use>
+                </svg>
+              </div>
+              <div class="svg-item">
+                <svg width="40" height="40">
+                  <use xlink:href="#svg-icon"></use>
+                </svg>
+              </div>
+            </div>
+            <h6 class="workflow-algorithm__item_text">
+              Frau Martha counts her money and loves discounts, so she will
+              gladly buy it for 95 cents, especially since it's very fresh —
+              straight from the farm. The milk will be delivered to the pickup
+              point tomorrow.
+            </h6>
+          </li>
+          <li class="workflow-algorithm__item workflow_4">
+            <div class="workflow-algorithm__item_svg">
+              <div class="svg-item">
+                <svg width="40" height="40">
+                  <use xlink:href="#svg-icon"></use>
+                </svg>
+              </div>
+            </div>
+            <h6 class="workflow-algorithm__item_text">
+              HoReCa needs fresh products every day, buying small quantities
+              wholesale from distributors at 90 cents. Will they accept the
+              freshest goods from the investor for 85 cents, including delivery?
+            </h6>
+          </li>
+        </ul>
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+          <symbol id="arrow" viewBox="0 0 80 80" fill="none">
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M31.9999 80L80 40L31.9999 0L31.9999 26.8033H0V53.1964H31.9999V80Z"
+              stroke="#A2C33D"
+              fill="none"
+              stroke-width="4"
+            />
+          </symbol>
+        </svg>
+      </section>
+      <section class="banner-farmer">
+        <img class="banner-farmer__img" src="./img/image_shop_unco.png" />
+        <div class="banner-farmer__right">
+          <ul class="banner-farmer__list">
+            <li class="banner-farmer__item banner-farmer_flex item-1">
+              <h2 class="banner-farmer__item_title">67 €</h2>
+              <h7 class="banner-farmer__item_text">average order value*</h7>
+            </li>
+            <li class="banner-farmer__item banner-farmer_column item-2">
+              <h2 class="banner-farmer__item_title">54,8%</h2>
+              <h7 class="banner-farmer__item_text"
+                >the average product's markup is*</h7
+              >
+            </li>
+            <li class="banner-farmer__item banner-farmer_flex item-3">
+              <h2 class="banner-farmer__item_title">2,4</h2>
+              <h7 class="banner-farmer__item_text"
+                >regular customer of e-grocery makes 2.4 orders per month*</h7
+              >
+            </li>
+          </ul>
+          <h9 class="banner-farmer__footnote"
+            >*based on 2 year business results</h9
+          >
+        </div>
+      </section>
+      <section class="faq-list">
+        <h5 class="faq-list__title">FAQ:</h5>
+        <ul class="faq-list__list">
+          <li class="faq-list__item">
+            <button class="faq-list__item_btn" onclick="toggleAnswer(this)">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+              >
+                <g clip-path="url(#clip0_177_427)">
+                  <path
+                    d="M4.44444 40C3.2657 40 2.13524 39.5317 1.30175 38.6983C0.46825 37.8648 0 36.7343 0 35.5556V4.44444C0 3.2657 0.46825 2.13524 1.30175 1.30175C2.13524 0.468253 3.2657 0 4.44444 0L35.5556 0C36.7343 0 37.8648 0.468253 38.6983 1.30175C39.5317 2.13524 40 3.2657 40 4.44444V35.5556C40 36.7343 39.5317 37.8648 38.6983 38.6983C37.8648 39.5317 36.7343 40 35.5556 40H4.44444Z"
+                    fill="#BC0051"
+                  />
+                  <path
+                    d="M24.4449 7.77783V17.7778H32.2227L20.0004 32.2223L7.77821 17.7778H15.556V7.77783H24.4449Z"
+                    fill="#FEFFFA"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_177_427">
+                    <rect
+                      width="40"
+                      height="40"
+                      fill="white"
+                      transform="matrix(0 1 -1 0 40 0)"
+                    />
+                  </clipPath>
+                </defs>
+              </svg>
+            </button>
+            <div class="faq-list__item_text">
+              <h6 class="faq-list__item_question">What is UFF?</h6>
+              <h6 class="faq-list__item_answer">
+                UNCO food futures is a financial contract obligating the buyer to purchase, and the seller to sell, a specific quantity of a food commodity at a predetermined price and date in the future. The tool allows you to save significantly on products. get «investment» income, what you save is what you earn.
+              </h6>
+            </div>
+          </li>
+          <li class="faq-list__item">
+            <button class="faq-list__item_btn" onclick="toggleAnswer(this)">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+              >
+                <g clip-path="url(#clip0_177_427)">
+                  <path
+                    d="M4.44444 40C3.2657 40 2.13524 39.5317 1.30175 38.6983C0.46825 37.8648 0 36.7343 0 35.5556V4.44444C0 3.2657 0.46825 2.13524 1.30175 1.30175C2.13524 0.468253 3.2657 0 4.44444 0L35.5556 0C36.7343 0 37.8648 0.468253 38.6983 1.30175C39.5317 2.13524 40 3.2657 40 4.44444V35.5556C40 36.7343 39.5317 37.8648 38.6983 38.6983C37.8648 39.5317 36.7343 40 35.5556 40H4.44444Z"
+                    fill="#BC0051"
+                  />
+                  <path
+                    d="M24.4449 7.77783V17.7778H32.2227L20.0004 32.2223L7.77821 17.7778H15.556V7.77783H24.4449Z"
+                    fill="#FEFFFA"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_177_427">
+                    <rect
+                      width="40"
+                      height="40"
+                      fill="white"
+                      transform="matrix(0 1 -1 0 40 0)"
+                    />
+                  </clipPath>
+                </defs>
+              </svg>
+            </button>
+            <div class="faq-list__item_text">
+              <h6 class="faq-list__item_question">
+                What should I do with food futures after purchase?
+              </h6>
+              <h6 class="faq-list__item_answer">
+                You can receive goods using it at a place and time specified in UFF or exchange it on the p2p platform.
+              </h6>
+            </div>
+          </li>
+          <li class="faq-list__item">
+            <button class="faq-list__item_btn" onclick="toggleAnswer(this)">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+              >
+                <g clip-path="url(#clip0_177_427)">
+                  <path
+                    d="M4.44444 40C3.2657 40 2.13524 39.5317 1.30175 38.6983C0.46825 37.8648 0 36.7343 0 35.5556V4.44444C0 3.2657 0.46825 2.13524 1.30175 1.30175C2.13524 0.468253 3.2657 0 4.44444 0L35.5556 0C36.7343 0 37.8648 0.468253 38.6983 1.30175C39.5317 2.13524 40 3.2657 40 4.44444V35.5556C40 36.7343 39.5317 37.8648 38.6983 38.6983C37.8648 39.5317 36.7343 40 35.5556 40H4.44444Z"
+                    fill="#BC0051"
+                  />
+                  <path
+                    d="M24.4449 7.77783V17.7778H32.2227L20.0004 32.2223L7.77821 17.7778H15.556V7.77783H24.4449Z"
+                    fill="#FEFFFA"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_177_427">
+                    <rect
+                      width="40"
+                      height="40"
+                      fill="white"
+                      transform="matrix(0 1 -1 0 40 0)"
+                    />
+                  </clipPath>
+                </defs>
+              </svg>
+            </button>
+            <div class="faq-list__item_text">
+              <h6 class="faq-list__item_question">
+                Where can I pick up my product?
+              </h6>
+              <h6 class="faq-list__item_answer">
+                Check your UFF for the exact time and address of delivery.
+              </h6>
+            </div>
+          </li>
+          <li class="faq-list__item">
+            <button class="faq-list__item_btn" onclick="toggleAnswer(this)">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+              >
+                <g clip-path="url(#clip0_177_427)">
+                  <path
+                    d="M4.44444 40C3.2657 40 2.13524 39.5317 1.30175 38.6983C0.46825 37.8648 0 36.7343 0 35.5556V4.44444C0 3.2657 0.46825 2.13524 1.30175 1.30175C2.13524 0.468253 3.2657 0 4.44444 0L35.5556 0C36.7343 0 37.8648 0.468253 38.6983 1.30175C39.5317 2.13524 40 3.2657 40 4.44444V35.5556C40 36.7343 39.5317 37.8648 38.6983 38.6983C37.8648 39.5317 36.7343 40 35.5556 40H4.44444Z"
+                    fill="#BC0051"
+                  />
+                  <path
+                    d="M24.4449 7.77783V17.7778H32.2227L20.0004 32.2223L7.77821 17.7778H15.556V7.77783H24.4449Z"
+                    fill="#FEFFFA"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_177_427">
+                    <rect
+                      width="40"
+                      height="40"
+                      fill="white"
+                      transform="matrix(0 1 -1 0 40 0)"
+                    />
+                  </clipPath>
+                </defs>
+              </svg>
+            </button>
+            <div class="faq-list__item_text">
+              <h6 class="faq-list__item_question">
+                What guarantee is there that the seller will not deceive me by taking my money but not delivering the goods to me?
+              </h6>
+              <h6 class="faq-list__item_answer">
+                If the supplier fails on delivery, UNCO will pay you the original price of the futures contract.
+              </h6>
+            </div>
+          </li>
+        </ul>
+      </section>
+      <section class="other_services">
+        <h5 class="other_services__title">You are welcome to use our other services</h5>
+        <ul class="other_services__list">
+          <li class="other_services__item large">
+            <img
+              class="other_services__item_img"
+              src="./img/customers.png"
+              alt="UFF for retail customers"
+            />
+            <div class="other_services__item_btn">
+              <button class="btn">UFF for retail customers</button>
+            </div>
+          </li>
+          <li class="other_services__item medium">
+            <img
+              class="other_services__item_img"
+              src="./img/exchange.png"
+              alt="UFF exchange"
+            />
+            <div class="other_services__item_btn">
+              <button class="btn">UFF exchange</button>
+            </div>
+          </li>
+          <li class="other_services__item medium">
+            <img
+              class="other_services__item_img"
+              src="./img/image_nft.png"
+              alt="UNCO NFT888"
+            />
+            <div class="other_services__item_btn">
+              <button class="btn">UNCO NFT888</button>
+            </div>
+          </li>
+          <li class="other_services__item medium">
+            <img
+              class="other_services__item_img"
+              src="./img/investor.png"
+              alt="UFF for investors"
+            />
+            <div class="other_services__item_btn">
+              <button class="btn">UFF for investors</button>
+            </div>
+          </li>
+          <li class="other_services__item medium">
+            <img
+              class="other_services__item_img"
+              src="./img/Ecopoints.png"
+              alt="Ecopoints"
+            />
+            <div class="other_services__item_btn">
+              <button class="btn">Ecopoints</button>
+            </div>
+          </li>
+          <li class="other_services__item medium">
+            <img
+              class="other_services__item_img"
+              src="./img/E-commerce.png"
+              alt="UFF for E-commerce"
+            />
+            <div class="other_services__item_btn">
+              <button class="btn">UFF for E-commerce</button>
+            </div>
+          </li>
+          <li class="other_services__item medium">
+            <img
+              class="other_services__item_img"
+              src="./img/producers.png"
+              alt="UFF for producers"
+            />
+            <div class="other_services__item_btn">
+              <button class="btn">UFF for producers</button>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer class="footer center">
+      <ul class="footer__links">
+        <li class="footer__links_item">
+          <a
+            href="https://x.com/i/flow/login?redirect_after_login=%2FUncoClub"
+            target="_blank"
+            ><img
+              class="footer__links_img"
+              src="./img/icons_twitter.svg"
+              alt="icon twitter"
+          /></a>
+        </li>
+        <li class="footer__links_item">
+          <a href=" https://www.linkedin.com/company/unco-club" target="_blank"
+            ><img
+              class="footer__links_img"
+              src="./img/icons_linkedin.svg"
+              alt="icon linkedin"
+          /></a>
+        </li>
+        <li class="footer__links_item">
+          <a href=" https://discord.gg/RCANqEB8 " target="_blank"
+            ><img
+              class="footer__links_img"
+              src="./img/icons_discord.svg"
+              alt="icon discord"
+          /></a>
+        </li>
+        <li class="footer__links_item">
+          <a href=" https://www.facebook.com/unco.club.de " target="_blank"
+            ><img
+              class="footer__links_img"
+              src="./img/icon_facebook.svg"
+              alt="icon facebook"
+          /></a>
+        </li>
+      </ul>
+      <div class="footer__contacts" id="contacts">
+        <h5 class="footer__contacts_title">Contact us:</h5>
+        <ul class="footer__contacts_list">
+          <li class="footer__contacts_item">
+            <p class="footer__contacts_text">
+              <a href="tel:+49 17667484911">+49 17667484911</a>
+            </p>
+          </li>
+          <li class="footer__contacts_item">
+            <p class="footer__contacts_text">
+              <a href="mailto:cvo(at)unco.club">cvo(at)unco.club</a>
+            </p>
+          </li>
+          <li class="footer__contacts_item">
+            <p class="footer__contacts_text">
+              UNCO CLUB GmbH Westerbachstr. 47
+            </p>
+            <p class="footer__contacts_text">
+              60489 Frankfurt am Main Germany 
+            </p>
+            <p class="footer__contacts_text">
+              Powered by Discovery Freshness Club Oy
+            </p>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="footer-form">
+        <form id="contact-form" action="https://submit-form.com/cq4vW5AdM" method="post">
+            <div class="form-group">
+                <label for="contact-method">For your questions:</label>
+                <div class="dropdown">
+                    <input type="text" id="contact-method" name="contact-method" placeholder="Method of communication" readonly>
+                    <button type="button" id="dropdown-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <g clip-path="url(#clip0_402_104)">
+                                <path d="M4.44444 40C3.2657 40 2.13524 39.5317 1.30175 38.6983C0.46825 37.8648 0 36.7343 0 35.5556V4.44444C0 3.2657 0.46825 2.13524 1.30175 1.30175C2.13524 0.468253 3.2657 0 4.44444 0L35.5556 0C36.7343 0 37.8648 0.468253 38.6983 1.30175C39.5317 2.13524 40 3.2657 40 4.44444V35.5556C40 36.7343 39.5317 37.8648 38.6983 38.6983C37.8648 39.5317 36.7343 40 35.5556 40H4.44444Z" fill="#BC0051"/>
+                                <path d="M24.4449 7.77783V17.7778H32.2227L20.0004 32.2223L7.77821 17.7778H15.556V7.77783H24.4449Z" fill="#FEFFFA"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_402_104">
+                                    <rect width="40" height="40" fill="white" transform="matrix(0 1 -1 0 40 0)"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </button>
+                    <ul id="dropdown-list">
+                        <li data-value="method_1">Phone number</li>
+                        <li data-value="method_2">E-mail</li>
+                        <li data-value="method_3">Messenger link</li>
+                        <li data-value="method_4">Social network link</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="contact-info" id="contact-info-label"></label>
+                <input type="text" id="contact-info" name="contact-info" placeholder="Enter your contact information"  pattern=".*">
+            </div>
+            <div class="form-group" id="message-group">
+                <label for="message"></label>
+                <textarea id="message" name="message" placeholder="Enter your message"></textarea>
+            </div>
+            <div class="form-group">
+                <button   type="submit">Send</button>
+            </div>
+        </form>
+    </div>
+<div class="footer__agreement">
+  <a href="https://www.unco.club/include/licenses_detail.php">Agreement on the processing of personal data</a>
+</div>
+    </footer>
+    <script src="./script.js"></script>
+  </body>
+</html>
