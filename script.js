@@ -8,71 +8,34 @@ function toggleMenu() {
         const timeParts = countdownElement.innerText.split(':');
         let hours = parseInt(timeParts[0]);
         let minutes = parseInt(timeParts[1]);
-        let seconds = parseInt(timeParts[2]);
-    
-        // Уменьшаем количество секунд
-        seconds--;
-    
-        // Если секунды равны 0, уменьшаем минуты и сбрасываем секунды до 59
+        let seconds = parseInt(timeParts[2]);   
+        
+        seconds--;   
+        
         if (seconds < 0) {
             seconds = 59;
             minutes--;
-        }
-    
-        // Если минуты равны 0, уменьшаем часы и сбрасываем минуты до 59
+        }    
+        
         if (minutes < 0) {
             minutes = 59;
             hours--;
-        }
-    
-        // Обновляем отображение таймера
+        }    
+        
         countdownElement.innerText =
-            `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-    
-        // Если таймер достиг нуля, прекращаем отсчет
+            `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;    
+        
         if (hours === 0 && minutes === 0 && seconds === 0) {
             clearInterval(countdownInterval);
         }
-    }
+    }   
     
-    // Устанавливаем начальное значение таймера
-    document.getElementById('countdown').innerText = '10:00:00';
+    document.getElementById('countdown').innerText = '10:00:00';    
     
-    // Обновляем обратный отсчет каждую секунду
     const countdownInterval = setInterval(updateCountdown, 1000);
  
 
-//     const showElementWithDelay = (selector, delay) => {
-//       const element = document.querySelector(selector);
-//       if (element) {
-//           setTimeout(() => {
-//               element.classList.add('visible');
-//           }, delay);
-//       }
-//   };
-  
-//   window.addEventListener('scroll', () => {
-//       if (isElementInViewport(document.querySelector('.workflow-algorithm'))) {
-//           showElementWithDelay('.workflow_1', 0);
-//           showElementWithDelay('.arrow_1_2', 200);
-//           showElementWithDelay('.workflow_2', 400);
-//           showElementWithDelay('.arrow_2_3', 600);
-//           showElementWithDelay('.workflow_3', 800);
-//           showElementWithDelay('.arrow_2_4', 1000);
-//           showElementWithDelay('.workflow_4', 1200);
-          
-//       }
-//   });
-  
-//   function isElementInViewport(el) {
-//     const rect = el.getBoundingClientRect();
-//     return (
-//       rect.top >= 0 &&
-//       rect.left >= 0 &&
-//       rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-//       rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-//     );
-//   }
+
 const showElementWithDelay = (selector, delay) => {
     const element = document.querySelector(selector);
     if (element) {
@@ -101,30 +64,16 @@ function isElementInViewport(el) {
     const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
     const windowWidth = (window.innerWidth || document.documentElement.clientWidth);
 
-    // Проверка, что элемент частично виден в viewport
+   
     const isVisible = (
         rect.top <= windowHeight && rect.bottom >= 0 &&
         rect.left <= windowWidth && rect.right >= 0
     );
-
    
     return isVisible;
 }
 
-// Первоначальная проверка после загрузки страницы
-// window.addEventListener('load', () => {
-//     const workflowAlgorithm = document.querySelector('.workflow-algorithm');
-//     if (isElementInViewport(workflowAlgorithm)) {
-//         console.log('Element is in viewport on load');
-//         showElementWithDelay('.workflow_1', 0);
-//         showElementWithDelay('.arrow_1_2', 200);
-//         showElementWithDelay('.workflow_2', 400);
-//         showElementWithDelay('.arrow_2_3', 600);
-//         showElementWithDelay('.workflow_3', 800);
-//         showElementWithDelay('.arrow_2_4', 600);
-//         showElementWithDelay('.workflow_4', 800);
-//     }
-// });
+
   
   function toggleAnswer(button) {
     const answer = button.nextElementSibling.querySelector('.faq-list__item_answer');
@@ -133,91 +82,21 @@ function isElementInViewport(el) {
   
     if (isVisible) {
       answer.classList.remove('visible');
-      btn.classList.remove('active'); // Удаляем класс active, когда ответ скрыт
+      btn.classList.remove('active'); 
     } else {
       answer.classList.add('visible');
-      btn.classList.add('active'); // Добавляем класс active, когда ответ виден
+      btn.classList.add('active'); 
     }
   }
   
-//   document.addEventListener('DOMContentLoaded', function() {
-//     const dropdownBtn = document.getElementById('dropdown-btn');
-//     const dropdownList = document.getElementById('dropdown-list');
-//     const contactMethodInput = document.getElementById('contact-method');
-//     const contactInfoInput = document.getElementById('contact-info');
-   
 
-  
-
-//     dropdownBtn.addEventListener('click', function() {
-//         dropdownList.style.display = dropdownList.style.display === 'block' ? 'none' : 'block';
-//         dropdownBtn.classList.toggle('active');
-        
-//     });
-
-//     dropdownList.addEventListener('click', function(e) {
-//         if (e.target.tagName === 'LI') {
-//             const method = e.target.textContent;
-//             contactMethodInput.value = method;
-//             dropdownList.style.display = 'none';
-//             dropdownBtn.classList.remove('active');
-           
-
-//             // Remove previous input restrictions
-//             contactInfoInput.removeEventListener('input', restrictPhoneInput);
-//             contactInfoInput.removeEventListener('input', restrictEmailInput);
-
-//             switch (e.target.dataset.value) {
-//                 case 'method_1':
-//                     contactInfoInput.placeholder = '+49';
-//                     contactInfoInput.pattern = '\\+\\d+'; // Pattern for phone number
-//                     contactInfoInput.addEventListener('input', restrictPhoneInput);
-//                     break;
-//                 case 'method_2':
-//                     contactInfoInput.placeholder = 'example@example.com';
-//                     contactInfoInput.pattern = '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}'; // Pattern for email
-//                     contactInfoInput.addEventListener('input', restrictEmailInput);
-//                     break;
-//                 case 'method_3':
-//                     contactInfoInput.placeholder = 'Paste messenger link';
-//                     contactInfoInput.pattern = '.*'; // General pattern (any input)
-//                     break;
-//                 case 'method_4':
-//                     contactInfoInput.placeholder = 'Paste social network link';
-//                     contactInfoInput.pattern = '.*'; // General pattern (any input)
-//                     break;
-//                 default:
-//                     contactInfoInput.placeholder = 'Enter your contact information';
-//                     contactInfoInput.pattern = '.*'; // General pattern (any input)
-//             }
-//         }
-//     });
-
-//     document.addEventListener('click', function(e) {
-//         if (!dropdownList.contains(e.target) && e.target !== dropdownBtn && !dropdownBtn.contains(e.target)) {
-//             dropdownList.style.display = 'none';
-//             dropdownBtn.classList.remove('active');
-            
-//         }
-//     });
-
-//     function restrictPhoneInput(e) {
-//         const regex = /[^\d+]/g;
-//         e.target.value = e.target.value.replace(regex, '');
-//     }
-
-//     function restrictEmailInput(e) {
-//         const regex = /[^a-zA-Z0-9@._%+-]/g;
-//         e.target.value = e.target.value.replace(regex, '');
-//     }
-// });
-
-document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function() {
     const dropdownBtn = document.getElementById('dropdown-btn');
     const dropdownList = document.getElementById('dropdown-list');
     const contactMethodInput = document.getElementById('contact-method');
     const contactInfoInput = document.getElementById('contact-info');
     const form = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
 
     dropdownBtn.addEventListener('click', function() {
         dropdownList.style.display = dropdownList.style.display === 'block' ? 'none' : 'block';
@@ -231,32 +110,32 @@ document.addEventListener('DOMContentLoaded', function() {
             dropdownList.style.display = 'none';
             dropdownBtn.classList.remove('active');
 
-            // Remove previous input restrictions
+            
             contactInfoInput.removeEventListener('input', restrictPhoneInput);
             contactInfoInput.removeEventListener('input', restrictEmailInput);
 
             switch (e.target.dataset.value) {
                 case 'method_1':
                     contactInfoInput.placeholder = '+49';
-                    contactInfoInput.pattern = '\\+\\d+'; // Pattern for phone number
+                    contactInfoInput.pattern = '\\+\\d+'; 
                     contactInfoInput.addEventListener('input', restrictPhoneInput);
                     break;
                 case 'method_2':
                     contactInfoInput.placeholder = 'example@example.com';
-                    contactInfoInput.pattern = '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}'; // Pattern for email
+                    contactInfoInput.pattern = '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}'; 
                     contactInfoInput.addEventListener('input', restrictEmailInput);
                     break;
                 case 'method_3':
                     contactInfoInput.placeholder = 'Paste messenger link';
-                    contactInfoInput.pattern = '.*'; // General pattern (any input)
+                    contactInfoInput.pattern = '.*'; 
                     break;
                 case 'method_4':
                     contactInfoInput.placeholder = 'Paste social network link';
-                    contactInfoInput.pattern = '.*'; // General pattern (any input)
+                    contactInfoInput.pattern = '.*'; 
                     break;
                 default:
                     contactInfoInput.placeholder = 'Enter your contact information';
-                    contactInfoInput.pattern = '.*'; // General pattern (any input)
+                    contactInfoInput.pattern = '.*'; 
             }
         }
     });
@@ -278,26 +157,71 @@ document.addEventListener('DOMContentLoaded', function() {
         e.target.value = e.target.value.replace(regex, '');
     }
 
-    // Handle form submission via AJAX
+    
     form.addEventListener('submit', function(e) {
-        e.preventDefault(); // Prevent the form from submitting the default way
+        e.preventDefault(); 
+
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
+
         const formData = new FormData(form);
 
-        fetch('https://formspree.io/f/mkndlaza', {
+        fetch('https://formspree.io/f/xrgnnbbk', {
             method: 'POST',
-            body: formData
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
         })
         .then(response => {
             if (response.ok) {
-                alert('Form submitted successfully!');
-                form.reset(); // Reset the form after successful submission
+                formStatus.innerText = 'Form submitted successfully!';
+                formStatus.style.display = 'block';
+                formStatus.style.color = 'green';
+                form.reset(); 
+
+                setTimeout(() => {
+                    formStatus.style.display = 'none';
+                }, 5000);
             } else {
-                alert('There was an error submitting the form.');
+                formStatus.innerText = 'There was an error submitting the form.';
+                formStatus.style.display = 'block';
+                formStatus.style.color = 'red';
             }
         })
         .catch(error => {
             console.error('Error:', error);
-            alert('There was an error submitting the form.');
+            formStatus.innerText = 'There was an error submitting the form.';
+            formStatus.style.display = 'block';
+            formStatus.style.color = 'red';
+        });
+    });
+});
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const scrollToTopButton = document.getElementById('scroll-to-top');
+    const bannerImg = document.getElementById('banner-img');
+    const bannerHeight = bannerImg.offsetHeight;
+
+    
+    window.addEventListener('scroll', function() {
+        
+        if (window.scrollY > bannerHeight && window.innerWidth > 767) {
+            scrollToTopButton.style.display = 'block';
+        } else {
+            scrollToTopButton.style.display = 'none';
+        }
+    });
+
+   
+    scrollToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
         });
     });
 });
