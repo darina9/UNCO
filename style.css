@@ -200,6 +200,8 @@ nav {
   text-align: center;
   border-radius: 20px;
   border: 1px solid #214b33;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
 }
 .blockchain-contracts__item_text {
   color: #214b33;
@@ -231,6 +233,9 @@ nav {
 .blockchain-contracts__item:nth-child(6) {
   grid-column: span 6; /* 12 столбцов */
   grid-row: 2; /* Третья строка */
+}
+.blockchain-contracts__item.visible {
+  opacity: 1;
 }
 .banner-img {
   position: relative;
@@ -383,6 +388,8 @@ nav {
   text-align: center;
   border-radius: 20px;
   border: 1px solid #214b33;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
 }
 .profit-list__item:nth-child(-n + 3) {
   grid-column: span 4; /* Первые три элемента занимают по 4 столбца */
@@ -398,6 +405,9 @@ nav {
   padding: 20px;
   align-items: center;
   text-align: left;
+}
+.profit-list__item.visible {
+  opacity: 1;
 }
 .banner-watch {
   margin-top: 100px;
@@ -839,6 +849,18 @@ nav {
 }
 .footer__links_item a svg {
   fill: currentColor;
+}
+.svg-link {
+  display: inline-block;
+}
+
+.svg-link:hover .svg-icon path {
+  --color1: #214B33;
+  --color2: #A2C33D;
+}
+.svg-link:hover rect {
+  --color1: #214B33; /* Цвет для первого прямоугольника */
+  --color2: #A2C33D; /* Цвет для второго пути */
 }
 .footer__contacts {
   display: flex;
@@ -2155,3 +2177,4 @@ textarea:focus {
     grid-column: auto;
   }
 }
+
