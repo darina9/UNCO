@@ -151,6 +151,7 @@ nav {
   justify-content: center;
   width: 447px;
   box-shadow: none !important;
+  cursor: pointer;
 }
 .btn:hover {
   background: #a2c33d;
@@ -285,7 +286,7 @@ nav {
 #scroll-to-top {
   display: none; /* Скрыто по умолчанию */
   position: fixed;
-  top: 20px;
+  bottom: 20px;
   right: 20px;
   width: 60px;
   height: 60px;
@@ -1366,6 +1367,17 @@ textarea:focus {
   .workflow-algorithm__title {
     font-size: 24px;
   }
+  .workflow-algorithm__item,
+.arrow {
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* CSS для видимого состояния */
+.workflow-algorithm__item.visible,
+.arrow.visible {
+  opacity: 1;
+}
   .banner-farmer {
     flex-direction: column;
   }
@@ -1417,6 +1429,15 @@ textarea:focus {
   .faq-list__title {
     font-size: 24px;
     margin-bottom: 20px;
+  }
+  .faq-list__item_answer.visible {
+   
+  min-height: 230px;
+  margin-top: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+    
   }
 
   .other_services__title {
@@ -1630,7 +1651,7 @@ textarea:focus {
   .banner-info__quote_autor {
     display: flex;
     justify-content: flex-start;
-    margin-top: 34px;
+    margin-top: 60px;
     font-size: 14px;
   }
   .banner-info__quote_left {
@@ -1952,8 +1973,9 @@ textarea:focus {
     line-height: 1.6;
   }
 
+  
   .workflow-algorithm {
-    margin-top: 60px;
+    margin-top: 40px;
     padding: 0;
   }
   .workflow-algorithm__title {
@@ -2025,14 +2047,13 @@ textarea:focus {
     left: calc(50% - 20px);
     transform: rotate(90deg);
   }
-
   .banner-farmer {
     margin-top: 60px;
     flex-direction: column;
     gap: 10px;
   }
   .banner-farmer__img {
-    height: 302px;
+    height: auto;
     width: 302px;
   }
   .banner-farmer__list {
@@ -2071,6 +2092,7 @@ textarea:focus {
 
   .faq-list__item {
     padding: 0 10px;
+    
   }
   .faq-list__item_text {
     padding: 10px 0;
@@ -2090,7 +2112,9 @@ textarea:focus {
 
   .faq-list__item_answer.visible {
     margin-top: 10px;
+    max-height: 220px;
   }
+
 
   .other_services {
     margin-top: 60px;
@@ -2112,7 +2136,7 @@ textarea:focus {
   .other_services__item_btn {
     bottom: -10px;
   }
-  .other_services__item_btn > .btn {
+  .other_services__item_btn > a >.btn {
     font-size: 18px;
     padding: 10px 20px;
   }
@@ -2177,4 +2201,5 @@ textarea:focus {
     grid-column: auto;
   }
 }
+
 
