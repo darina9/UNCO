@@ -1,4 +1,3 @@
-
 //Первая анимация списка
 document.addEventListener('DOMContentLoaded', function () {
     const observerOptions = {
@@ -26,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         item.classList.add('visible');
                     }, delay);
 
-                    delay += 500;
+                    delay += 200;
                 });
 
                 observer.unobserve(entry.target);
@@ -105,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         item.classList.add('visible');
                     }, delay);
 
-                    delay += 500;
+                    delay += 200;
                 });
 
                 observer.unobserve(entry.target);
@@ -131,12 +130,12 @@ window.addEventListener('scroll', () => {
     if (isElementInViewport(workflowAlgorithm)) {
 
         showElementWithDelay('.workflow_1', 0);
-        showElementWithDelay('.arrow_1_2', 200);
+        showElementWithDelay('.arrow_1_2', 400);
         showElementWithDelay('.workflow_2', 400);
-        showElementWithDelay('.arrow_2_3', 600);
+        showElementWithDelay('.arrow_2_3', 800);
         showElementWithDelay('.workflow_3', 800);
-        showElementWithDelay('.arrow_2_4', 1000);
-        showElementWithDelay('.workflow_4', 1200);
+        showElementWithDelay('.arrow_2_4', 800);
+        showElementWithDelay('.workflow_4', 800);
     }
 });
 function isElementInViewport(el) {
@@ -153,19 +152,21 @@ function isElementInViewport(el) {
 }
 
 
-// Функция для переключения видимости ответа в FAQ
 function toggleAnswer(button) {
+    console.time('toggleAnswer');
+    
     const answer = button.nextElementSibling.querySelector('.faq-list__item_answer');
-    const isVisible = answer.classList.contains('visible');
     const btn = button.querySelector('svg');
 
-    if (isVisible) {
+    if (answer.classList.contains('visible')) {
         answer.classList.remove('visible');
         btn.classList.remove('active');
     } else {
         answer.classList.add('visible');
         btn.classList.add('active');
     }
+    
+    console.timeEnd('toggleAnswer');
 }
 // Настройка формы обратной связи
 
