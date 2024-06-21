@@ -177,6 +177,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const contactInfoInput = document.getElementById('contact-info');
     const form = document.getElementById('contact-form');
     const formStatus = document.getElementById('form-status');
+    const recaptchaResponse = document.getElementById('g-recaptcha-response');
 
     dropdownBtn.addEventListener('click', function () {
         dropdownList.style.display = dropdownList.style.display === 'block' ? 'none' : 'block';
@@ -189,7 +190,6 @@ document.addEventListener('DOMContentLoaded', function () {
             contactMethodInput.value = method;
             dropdownList.style.display = 'none';
             dropdownBtn.classList.remove('active');
-
 
             contactInfoInput.removeEventListener('input', restrictPhoneInput);
             contactInfoInput.removeEventListener('input', restrictEmailInput);
@@ -237,7 +237,6 @@ document.addEventListener('DOMContentLoaded', function () {
         e.target.value = e.target.value.replace(regex, '');
     }
 
-// Обработка отправки формы контакта
     form.addEventListener('submit', function (e) {
         e.preventDefault();
 
@@ -246,37 +245,43 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        const formData = new FormData(form);
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6Lcxg_wpAAAAAOv849saVRW6sJ1bZTRYGBXJ6jVc', { action: 'submit' }).then(function(token) {
+                recaptchaResponse.value = token;
 
-        fetch('https://formspree.io/f/xrgnnbbk', {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Accept': 'application/json'
-            }
-        })
-            .then(response => {
-                if (response.ok) {
-                    formStatus.innerText = 'Form submitted successfully!';
-                    formStatus.style.display = 'block';
-                    formStatus.style.color = 'green';
-                    form.reset();
+                const formData = new FormData(form);
 
-                    setTimeout(() => {
-                        formStatus.style.display = 'none';
-                    }, 5000);
-                } else {
-                    formStatus.innerText = 'There was an error submitting the form.';
-                    formStatus.style.display = 'block';
-                    formStatus.style.color = 'red';
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                formStatus.innerText = 'There was an error submitting the form.';
-                formStatus.style.display = 'block';
-                formStatus.style.color = 'red';
+                fetch('https://feedback.foodfutures.net/', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            formStatus.innerText = 'Form submitted successfully!';
+                            formStatus.style.display = 'block';
+                            formStatus.style.color = 'green';
+                            form.reset();
+
+                            setTimeout(() => {
+                                formStatus.style.display = 'none';
+                            }, 5000);
+                        } else {
+                            formStatus.innerText = 'There was an error submitting the form.';
+                            formStatus.style.display = 'block';
+                            formStatus.style.color = 'red';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        formStatus.innerText = 'There was an error submitting the form.';
+                        formStatus.style.display = 'block';
+                        formStatus.style.color = 'red';
+                    });
             });
+        });
     });
 });
 
