@@ -12,6 +12,7 @@
     />
     <title>UNCO</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://www.google.com/recaptcha/api.js?render=6Lcxg_wpAAAAAOv849saVRW6sJ1bZTRYGBXJ6jVc"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1BNY1ZWRW9"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -196,9 +197,9 @@
                   </svg>
         </div>
         <div class="profit-chart__img">
-          <img class="profit-chart__img-big" src="./img/profit chart.svg" alt="profit chart" />
-          <img class="profit-chart__img-midi" src="./img/profit chart-midi.svg" alt="profit chart" />
-          <img class="profit-chart__img-mini" src="./img/profit chart-mini.svg" alt="profit chart" />
+          <img class="profit-chart__img-big" src="./img/profit_chart.svg" alt="profit chart" />
+          <img class="profit-chart__img-midi" src="./img/profit_chart-midi.svg" alt="profit chart" />
+          <img class="profit-chart__img-mini" src="./img/profit_chart-mini.svg" alt="profit chart" />
         </div>
       </section>
       <section class="profit-list">
@@ -821,45 +822,47 @@
         </ul>
       </div>
       <div class="footer-form">
-        <form id="contact-form" >
-          <div class="form-group">
-              <label for="contact-method">For your questions:</label>
-              <div class="dropdown">
-                  <input type="text" id="contact-method" name="contact-method" placeholder="Method of communication" readonly>
-                  <button type="button" id="dropdown-btn">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
-                          <g clip-path="url(#clip0_402_104)">
-                              <path d="M4.44444 40C3.2657 40 2.13524 39.5317 1.30175 38.6983C0.46825 37.8648 0 36.7343 0 35.5556V4.44444C0 3.2657 0.46825 2.13524 1.30175 1.30175C2.13524 0.468253 3.2657 0 4.44444 0L35.5556 0C36.7343 0 37.8648 0.468253 38.6983 1.30175C39.5317 2.13524 40 3.2657 40 4.44444V35.5556C40 36.7343 39.5317 37.8648 38.6983 38.6983C37.8648 39.5317 36.7343 40 35.5556 40H4.44444Z" fill="#BC0051"/>
-                              <path d="M24.4449 7.77783V17.7778H32.2227L20.0004 32.2223L7.77821 17.7778H15.556V7.77783H24.4449Z" fill="#FEFFFA"/>
-                          </g>
-                          <defs>
-                              <clipPath id="clip0_402_104">
-                                  <rect width="40" height="40" fill="white" transform="matrix(0 1 -1 0 40 0)"/>
-                              </clipPath>
-                          </defs>
-                      </svg>
-                  </button>
-                  <ul id="dropdown-list">
-                      <li data-value="method_1">Phone number</li>
-                      <li data-value="method_2">E-mail</li>
-                      <li data-value="method_3">Messenger link</li>
-                      <li data-value="method_4">Social network link</li>
-                  </ul>
-              </div>
-          </div>
-          <div class="form-group">
-              <label for="contact-info" id="contact-info-label"></label>
-              <input type="text" id="contact-info" name="contact-info" placeholder="Enter your contact information" required pattern=".*">
-          </div>
-          <div class="form-group" id="message-group">
-              <label for="message"></label>
-              <textarea id="message" name="message" placeholder="Enter your message"></textarea>
-          </div>
-          <div class="form-group">
-              <button type="submit">Send</button>
-          </div>
-          <div id="form-status"></div>
-      </form>
+        <form id="contact-form" action="https://feedback.foodfutures.net/" method="POST">
+            <!-- Ваши существующие поля формы -->
+            <div class="form-group">
+                <label for="contact-method">For your questions:</label>
+                <div class="dropdown">
+                    <input type="text" id="contact-method" name="contact-method" placeholder="Method of communication" readonly>
+                    <button type="button" id="dropdown-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <g clip-path="url(#clip0_402_104)">
+                                <path d="M4.44444 40C3.2657 40 2.13524 39.5317 1.30175 38.6983C0.46825 37.8648 0 36.7343 0 35.5556V4.44444C0 3.2657 0.46825 2.13524 1.30175 1.30175C2.13524 0.468253 3.2657 0 4.44444 0L35.5556 0C36.7343 0 37.8648 0.468253 38.6983 1.30175C39.5317 2.13524 40 3.2657 40 4.44444V35.5556C40 36.7343 39.5317 37.8648 38.6983 38.6983C37.8648 39.5317 36.7343 40 35.5556 40H4.44444Z" fill="#BC0051"/>
+                                <path d="M24.4449 7.77783V17.7778H32.2227L20.0004 32.2223L7.77821 17.7778H15.556V7.77783H24.4449Z" fill="#FEFFFA"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_402_104">
+                                    <rect width="40" height="40" fill="white" transform="matrix(0 1 -1 0 40 0)"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </button>
+                    <ul id="dropdown-list">
+                        <li data-value="method_1">Phone number</li>
+                        <li data-value="method_2">E-mail</li>
+                        <li data-value="method_3">Messenger link</li>
+                        <li data-value="method_4">Social network link</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="contact-info" id="contact-info-label"></label>
+                <input type="text" id="contact-info" name="contact-info" placeholder="Enter your contact information" required pattern=".*">
+            </div>
+            <div class="form-group" id="message-group">
+                <label for="message"></label>
+                <textarea id="message" name="message" placeholder="Enter your message"></textarea>
+            </div>
+            <div class="form-group">
+                <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
+                <button type="submit">Send</button>
+            </div>
+            <div id="form-status"></div>
+        </form>
     </div>
 <div class="footer__agreement">
   <a href="https://www.unco.club/include/licenses_detail.php">Vereinbarung über die Verarbeitung von<br> personenbezogenen Daten</a>
