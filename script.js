@@ -195,21 +195,21 @@ document.addEventListener('DOMContentLoaded', function () {
             contactInfoInput.removeEventListener('input', restrictEmailInput);
 
             switch (e.target.dataset.value) {
-                case 'method_1':
+                case 'Phone':
                     contactInfoInput.placeholder = '+49';
                     contactInfoInput.pattern = '\\+\\d+';
                     contactInfoInput.addEventListener('input', restrictPhoneInput);
                     break;
-                case 'method_2':
+                case 'Email':
                     contactInfoInput.placeholder = 'example@example.com';
                     contactInfoInput.pattern = '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}';
                     contactInfoInput.addEventListener('input', restrictEmailInput);
                     break;
-                case 'method_3':
+                case 'Messenger':
                     contactInfoInput.placeholder = 'Paste messenger link';
                     contactInfoInput.pattern = '.*';
                     break;
-                case 'method_4':
+                case 'Social':
                     contactInfoInput.placeholder = 'Paste social network link';
                     contactInfoInput.pattern = '.*';
                     break;
